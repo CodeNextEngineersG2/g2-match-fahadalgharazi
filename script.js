@@ -42,6 +42,20 @@ var resetButton, musicButton;
      myImage = loadImage("assets/img/image.png");
    }
  */
+function loadImages(){
+   backImage = loadImage("assets/img/back.png");
+   boltImage = loadImage("assets/img/bolt.png");
+   cloudImage = loadImage("assets/img/cloud.png");
+   sunImage = loadImage("assets/img/sun.png");
+   moonImage = loadImage("assets/img/moon.png");
+   smileyImage = loadImage("assets/img/smiley.png");
+   heartImage = loadImage("assets/img/heart.png");
+   transitionImage1 = loadImage("assets/img/transition1.png");
+   transitionImage2 = loadImage("assets/img/transition2.png");
+   transitionImage3 = loadImage("assets/img/transition3.png");
+
+
+}
 
 
 /*
@@ -55,7 +69,16 @@ var resetButton, musicButton;
      myAnimation = loadAnimation(img1, img2, img3, img4);
    }
  */
+function loadAnimations(){
+  boltAnimation = loadAnimation(backImage,transitionImage1,transitionImage2,transitionImage3,boltImage);
+  cloudAnimation = loadAnimation(backImage,transitionImage1,transitionImage2,transitionImage3,cloudImage);
+  sunAnimation = loadAnimation(backImage,transitionImage1,transitionImage2,transitionImage3,sunImage);
+  moonAnimation = loadAnimation(backImage,transitionImage1,transitionImage2,transitionImage3,moonImage);
+  smileyAnimation = loadAnimation(backImage,transitionImage1,transitionImage2,transitionImage3,smileyImage);
+  heartAnimation = loadAnimation(backImage,transitionImage1,transitionImage2,transitionImage3,heartImage);
 
+
+}
 
 /*
  * function loadSounds()
@@ -76,7 +99,10 @@ var resetButton, musicButton;
  * begin running until the assets are loaded and ready. Therefore, this function
  * is essentially a "pre-setup" function. 
  */
-
+function preload(){
+  loadImages();
+  loadAnimations();
+}
 
 /*
  * function setup()
