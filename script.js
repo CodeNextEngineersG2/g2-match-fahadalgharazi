@@ -110,7 +110,18 @@ function preload(){
  * Therefore, assets are assumed to have been loaded and ready before this
  * function is called.
  */
-
+function setup(){
+  gameScreen =createCanvas(790,370);
+  gameScreen.parent("gamescreen");
+  spriteWidth = 120;
+  spriteHeight = 168;
+  spriteX = 70;
+  spriteY = 95;
+  imageArray = [boltImage, cloudImage, sunImage, moonImage, smileyImage, heartImage];
+  resizeImages();
+  createSprites();
+  spriteArray = [boltSprite1,boltSprite2,cloudSprite1,cloudSprite2,sunSprite1,sunSprite2,moonSprite1,moonSprite2,heartSprite1,heartSprite2,smileySprite1,smileySprite2];
+}
 
 /*
  * function draw()
@@ -146,6 +157,12 @@ function preload(){
  * Example of resizing one image:
    image.resize(40, 50);
  */
+function resizeImages(){
+    for (var i = 0;i<array.length;i++){
+   imageArray[i].resize(spriteWidth,spriteHeight);
+
+  }
+  }
 
 
 /*
@@ -160,7 +177,22 @@ function preload(){
      mySprite = createSprite(0, 0, spriteWidth, spriteHeight);
    }
  */
+function createSprites(){
+  boltSprite1 = createSprites(0,0, spriteWidth,spriteHeight);
+  boltSprite2 = createSprites(0,0, spriteWidth,spriteHeight);
+  cloudSprite1 = createSprites(0,0, spriteWidth,spriteHeight);
+  cloudSprite2 = createSprites(0,0, spriteWidth,spriteHeight);
+  sunSprite1 = createSprites(0,0, spriteWidth,spriteHeight);
+  sunSprite2 = createSprites(0,0, spriteWidth,spriteHeight);
+  moonSprite1 = createSprites(0,0, spriteWidth,spriteHeight);
+  moonSprite2 = createSprites(0,0, spriteWidth,spriteHeight);
+  heartSprite1 = createSprites(0,0, spriteWidth,spriteHeight);
+  heartSprite2 = createSprites(0,0, spriteWidth,spriteHeight);
+  smileySprite1 = createSprites(0,0, spriteWidth,spriteHeight);
+  smileySprite2 = createSprites(0,0, spriteWidth,spriteHeight);
 
+
+}
 
 /*
  * function addAnimations()
@@ -170,7 +202,19 @@ function preload(){
  * each animation's frameDelay, loop, and playing properties. Finally, this
  * function calls activateSprite(s) with each sprite as input.
  */
+function addAnimations(){
+  var animation = [boltAnimation,boltAnimation,cloudAnimation,cloudAnimation,sunAnimation,sunAnimation];
+  for(var i=0;i<spriteArray.length;i++){
+    spriteArray[i].addAnimation("flip",animations[i]);
+    frameDelay=10;
+    activateSprite(spriteArray[i]);
+  }
 
+
+
+
+
+}
 
 /*
  * function placeSprites()
